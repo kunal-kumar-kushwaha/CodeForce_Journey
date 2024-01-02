@@ -1,1 +1,75 @@
+*** // Lower Bound // ***
 
+#include <iostream>
+#include<string>
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {2,3,4,6,7,8,12,67,89,56};
+    int  n = v.size() ;
+    int target = 55 ;
+
+    // code to found lower bound is, 
+    int l = 0;
+    int h =n-1 ;
+    int ans = 0 ;
+
+    while(l<=h){
+        int mid = l+(h-l)/2 ;
+        if(v[mid] >= target){
+            ans = mid ;
+            h = mid-1 ;
+        }
+        else{
+            l = mid+1 ;
+        }
+    }
+    cout << "index is :" << ans <<" and ele is:" << v[ans] ;
+
+
+return 0 ;
+}
+
+
+
+
+
+
+***-------------------***-----------------***-------------------***-----------------***-----------------***------------------
+
+
+
+
+
+*** // Upper Bound // ***
+
+#include <iostream>
+#include<string>
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {2,4,6,8,10,10,10,11,14 ,15} ;
+    int n = v.size() ;
+    int x = 10 ;
+
+    int ans = n ;
+    int l = 0 ,h =n-1 ;
+    while(l<=h){
+        int mid = l+(h-l)/2 ;
+        if(v[mid] > x){
+            ans = mid ;
+            h = mid -1 ;
+        }
+        else{
+            l = mid+1 ;
+        }
+    }
+    cout << ans << " " << v[ans] <<endl  ;
+
+
+return 0 ;
+}
