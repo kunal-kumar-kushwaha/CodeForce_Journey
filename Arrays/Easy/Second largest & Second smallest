@@ -1,0 +1,95 @@
+#include <iostream>
+#include<string>
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {1,2,4,7,7,5};
+    int n  = v.size() ;
+    int mini = v[0] ; int Smini = INT_MAX;
+    int maxi = v[0] ; int Smaxi = INT_MIN;
+
+    // sort(v.begin() , v.end()) ;
+    // cout << v[1] << " " << v[n-2] << endl;
+
+    for(int i =1 ; i<n ; i++){
+        if(mini >v[i]){
+            mini = v[i];
+        }
+    }
+
+      for(int i =1 ; i<n ; i++){
+        if(maxi <v[i]){
+            maxi = v[i];
+        }
+    }
+
+    for(int i = 0; i< n ; i++){
+        if(v[i] < Smini && v[i] != mini){
+            Smini = v[i] ;
+        }
+
+        if(v[i] > Smaxi && v[i] != maxi){
+            Smaxi = v[i] ;
+        }
+    }
+
+
+    cout << mini << " "  << maxi << endl ;
+    cout << Smini << " "  << Smaxi << endl ;
+
+return 0 ;
+}
+
+
+
+
+***-----------------***---------------------*** Second  Approch **----------------------**------------------***-------------------
+
+
+
+#include <iostream>
+#include<string>
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {1,2,4,7,7,5};
+    int n  = v.size() ;
+    int mini = INT_MAX ;  int Smini = INT_MAX;
+    int maxi = INT_MIN ;  int Smaxi = INT_MIN;
+
+    if(n <2){
+        cout << "-1" ;
+    }
+
+
+    for(int i = 0; i< n ; i++){
+        if(v[i] < mini){
+            Smini = mini ;
+            mini = v[i] ;
+        }
+        else if (v[i] < Smini && v[i] != mini){
+            Smini = v[i] ;
+        }
+    }
+
+
+        for(int i = 0; i< n ; i++){
+        if(v[i] > maxi){
+            Smaxi = maxi ;
+            maxi = v[i] ;
+        }
+        else if (v[i] > Smaxi && v[i] != maxi){
+            Smaxi = v[i] ;
+        }
+    }
+
+    cout << Smini << endl ;
+    cout << Smaxi << endl ;
+
+return 0 ;
+}
+
