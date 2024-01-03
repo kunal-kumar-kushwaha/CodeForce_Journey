@@ -1,0 +1,54 @@
+#include <iostream>
+#include<string>
+#include<vector>
+#include<set>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {1,1,2,2,2,3,3} ;
+    int n  = v.size() ;
+
+    set<int> st;
+    for(int i= 0; i< n ; i++){
+        st.insert(v[i]);
+    }
+    
+    for(int it : st){
+        cout << it << " " ;
+    }
+
+
+return 0 ;
+}
+
+// Complexity N*Log*N
+
+--------------*****---------------*****------------------*****-----------------*****----------------*****---------------*****----------------
+
+#include <iostream>
+#include<string>
+#include<set> 
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v ={1,1,1,2,2,3,3,3,3,4,4} ;
+    int n =  v.size() ;
+
+
+    int i = 0;
+    for(int j = 1; j<n ; j++){
+        if(v[j] != v[i]){
+            v[i+1] = v[j] ;
+            i++ ;
+        }
+    }
+    for (int k = 0; k <= i; k++) {
+        cout << v[k] << " ";
+    }
+
+
+return 0 ;
+}
