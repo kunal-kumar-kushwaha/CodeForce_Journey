@@ -1,0 +1,40 @@
+#include <iostream>
+#include<string>
+#include<vector>
+
+using namespace std ; 
+
+int main(){
+    vector<int> v = {3, 4, 4, 7, 8, 10} ;
+    int n = v.size() ;
+    int x ;
+    cin >>x ;
+
+    int l = 0 , h =n-1 ;
+    int ans1  = -1 , ans2 = -1 ;
+    while(l<=h){
+        int mid = l+(h-l)/2 ;
+        if(v[mid] <= x){
+            ans1 = v[mid] ;
+            l = mid+1 ;
+        }
+        else{
+            h = mid-1 ;
+        }
+    }
+    l =0, h=n-1;
+    while(l<=h){
+        int mid = l+(h-l)/2 ;
+        if(v[mid] >= x){
+            ans2 = v[mid] ;
+             h= mid-1 ;
+        }
+        else{
+            l = mid+1 ;
+        }
+    }
+    cout << ans1 <<" "<< ans2 << endl;
+
+
+return 0 ;
+}
